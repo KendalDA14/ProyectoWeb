@@ -10,10 +10,12 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 
-//
+//rutas del home publico
 Route::get('home', [Login::class, 'Home'])->name('home');
 Route::get('login', [Login::class, 'login'])->name('login');
 Route::get('signUp', [Login::class, 'SignUp'])->name('SignUp');
+
+//rutas del home admin
 Route::get('homeAdmin', [Login::class, 'homeAdmin'])->name('homeAdmin');
 Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');
 Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
@@ -22,10 +24,18 @@ Route::resource('libros', LibroController::class)->except(['show']);
 Route::resource('categorias', CategoriaController::class)->except(['show']);
 
 
-
-Route::middleware('auth')->group(function () {
-/* Route::resource('libros', LibroController::class)->except(['show']);
+//rutas para autenticar 
+Route::middleware('auth')->group(function () { // Ventanas para autenticar 
+    /* Route::resource('libros', LibroController::class)->except(['show']);
     Route::resource('categorias', CategoriaController::class)->except(['show']);
     Route::get('homeAdmin', [Login::class, 'homeAdmin'])->name('homeAdmin');
     Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');*/
 });
+
+
+/*Route::get('sucursales', function () {
+    $libro = libro::all();
+    $categoria = categoria::all();
+    return view('admi.ventana', compact('libros', 'categorias'));
+})->name('sucursales');*/
+

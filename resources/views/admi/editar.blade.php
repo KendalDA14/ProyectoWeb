@@ -43,7 +43,7 @@
             </div>
             <div class="mb-4">
                 <label for="calificacion" class="block text-sm font-medium text-gray-700">Calificación</label>
-                <input type="number" name="calificacion" id="calificacion" value="{{ $libro->calificacion }}" min="1" max="5" required>
+                <input type="number" name="calificacion" step="0.5" min="0" max="5" required>
             </div>
             <div class="mb-4">
                 <label for="imagen" class="block text-sm font-medium text-gray-700">Imagen</label>

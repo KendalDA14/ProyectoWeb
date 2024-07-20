@@ -39,8 +39,4 @@ class Login extends Controller
     {
         return view('admi.editaEliminar');
     }
-    public function libroActualizar(): View
-    {
-        return view('libro.actualizar');
-    }
 }

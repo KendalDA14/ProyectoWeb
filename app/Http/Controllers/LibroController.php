@@ -25,7 +25,7 @@ class LibroController extends Controller
             'descripcion' => 'required|string',
             'autor' => 'required|string|max:20',
             'fecha_salida' => 'required|date',
-            'calificacion' => 'required|integer|min:1|max:5',
+            'calificacion' => 'required|numeric|min:0|max:5|regex:/^[0-5](\.[05])?$/',
             'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'enlace_descarga' => 'required|string',
             'categoria_id' => 'required|exists:categorias,id',
