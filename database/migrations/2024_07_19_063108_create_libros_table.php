@@ -13,7 +13,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->string('autor');
             $table->date('fecha_salida');
-            $table->float('calificacion', 2, 1);
+            $table->float('calificacion', 2, 1)->default(0);
             $table->string('imagen');
             $table->string('enlace_descarga');
             $table->foreignId('categoria_id')->constrained('categorias');

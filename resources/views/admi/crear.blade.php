@@ -47,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label for="calificacion">Calificación</label>
-                <input type="number" name="calificacion" class="form-control" required>
+                <input type="number" name="calificacion" step="0.5" min="0" max="5" required>
             </div>
             <div class="form-group">
                 <label for="imagen">Imagen</label>
