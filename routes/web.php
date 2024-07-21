@@ -32,6 +32,11 @@ Route::middleware('auth')->group(function () { // Ventanas para autenticar
     Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');*/
 });
 
+//rutas para ver categorías
+Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
+Route::get('/categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
+Route::get('/categorias/{id}', [CategoriaController::class, 'mostrar'])->name('categorias.mostrar');
+
 
 /*Route::get('sucursales', function () {
     $libro = libro::all();

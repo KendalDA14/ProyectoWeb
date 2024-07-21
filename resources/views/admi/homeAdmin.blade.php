@@ -14,7 +14,7 @@
         <div class="flex items-center gap-4">
             <a href="#" class="text-2xl font-bold">Librería Online</a>
             <nav class="hidden md:flex items-center gap-4">
-                <a href="#" class="hover:text-primary-foreground">Categorías</a>
+                <a href="{{ route('libros.index') }}" class="hover:text-primary-foreground">Categorías</a>
                 <a href="#" class="hover:text-primary-foreground">Novedades</a>
                 <a href="#" class="hover:text-primary-foreground">Más Vendidos</a>
                 <a href="#" class="hover:text-primary-foreground">Contacto</a>
