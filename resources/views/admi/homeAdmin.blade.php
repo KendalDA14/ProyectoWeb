@@ -13,13 +13,11 @@
     <header class="flex items-center justify-between px-6 py-4 border-b bg-muted text-muted-foreground">
         <div class="flex items-center gap-4">
             <a href="#" class="text-2xl font-bold">Librería Online</a>
-            <nav class="hidden md:flex items-center gap-4">
-                <a href="{{ route('libros.index') }}" class="hover:text-primary-foreground">Categorías</a>
-                <a href="#" class="hover:text-primary-foreground">Novedades</a>
-                <a href="#" class="hover:text-primary-foreground">Más Vendidos</a>
-                <a href="#" class="hover:text-primary-foreground">Contacto</a>
-            </nav>
         </div>
+        <div class="flex justify-center">
+            <a href="#" class="text-2xl font-bold" style="color: black;">Area Administrativa</a>
+        </div>
+
         <div class="flex items-center gap-4">
             <button id="BtnVentanaAdmin" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
                 Administrador
