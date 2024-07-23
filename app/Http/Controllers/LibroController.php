@@ -11,6 +11,12 @@ class LibroController extends Controller
 {
 
 
+    public function index()
+    {
+        $categorias = Categoria::all();
+        return view('libros.index', compact('categorias'));
+    }
+
     public function crear(): View
     {
         $categorias = Categoria::all();

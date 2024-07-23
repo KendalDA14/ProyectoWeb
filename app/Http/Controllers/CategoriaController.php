@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categoria;
+use App\Models\Libro;
 
 class CategoriaController extends Controller
 {
@@ -46,5 +47,18 @@ class CategoriaController extends Controller
     {
         $categoria->delete();
         return redirect()->route('categorias.create')->with('success', 'Categoría eliminada');
+    }
+
+    public function categoriaIndex()
+    {
+        $categorias = Categoria::all();
+        return view('categorias.index', compact('categorias'));
+    }
+
+    public function mostrar($id)
+    {
+        $categoria = Categoria::findOrFail($id);
+        $libros = Libro::where('categoria_id', $id)->get();
+        return view('categorias.mostrar', compact('categoria', 'libros'));
     }
 }
