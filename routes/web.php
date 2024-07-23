@@ -22,6 +22,11 @@ Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
 Route::post('GuardaBd', [LibroController::class, 'store'])->name('GuardaBd');
 Route::resource('libros', LibroController::class)->except(['show']);
 Route::resource('categorias', CategoriaController::class)->except(['show']);
+//rutas para ver categorías
+Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
+Route::get('categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
+Route::get('categorias/{id}', [CategoriaController::class, 'mostrar'])->name('categorias.mostrar');
+
 
 
 //rutas para autenticar 
@@ -32,10 +37,6 @@ Route::middleware('auth')->group(function () { // Ventanas para autenticar
     Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');*/
 });
 
-//rutas para ver categorías
-Route::get('/libros', [LibroController::class, 'index'])->name('libros.index');
-Route::get('/categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
-Route::get('/categorias/{id}', [CategoriaController::class, 'mostrar'])->name('categorias.mostrar');
 
 
 /*Route::get('sucursales', function () {
