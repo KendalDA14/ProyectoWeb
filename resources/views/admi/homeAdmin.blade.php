@@ -15,29 +15,23 @@
             <a href="#" class="text-2xl font-bold">Librería Online</a>
         </div>
         <div class="flex justify-center">
-            <a href="#" class="text-2xl font-bold" style="color: black;">Area Administrativa</a>
+            <a href="#" class="text-2xl font-bold" style="color: black;">Area de administracion</a>
         </div>
 
         <div class="flex items-center gap-4">
-            <button id="BtnVentanaAdmin" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
-                Administrador
-            </button>
-            <button id="BtnVolver" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
-                Salir
-            </button>
+             
+                <button type="button" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" onclick="window.location.href='{{ route('ventanaAdmin') }}'">
+                    Administración
+                </button>
+            <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" id="logoutBtn">Cerrar Sesión</button>
+                </form>
         </div>
     </header>
 
     <main class="px-6 py-8">
-        <section class="text-center space-y-6 bg-muted text-foreground p-8 rounded-lg">
-            <h1 class="text-4xl font-bold font-serif">Bienvenido a Librería Online</h1>
-            <p class="max-w-md mx-auto">
-                Descubre una amplia selección de libros, desde clásicos hasta las últimas novedades.
-            </p>
-            Con nosotros podras descargar todos los libros gratos.
-            </p>
-
-        </section>
+        <h2 class="text-2xl font-bold">Libros</h2>
 
         <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
             @foreach ($libros as $libro)
