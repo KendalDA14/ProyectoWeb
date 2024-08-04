@@ -33,13 +33,9 @@ Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
 
 
 //rutas para autenticar 
-Route::middleware([EnsureUserHasRole::class])->group(function () { // Ventanas para autenticar 
+Route::middleware([EnsureUserHasRole::class])->group(function () { // Ventanas para autenticarr 
     Route::get('homeAdmin', [Login::class, 'homeAdmin'])->name('homeAdmin');
     Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');
     Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
     Route::post('GuardaBd', [LibroController::class, 'store'])->name('GuardaBd');
-    
 });
-
-
-
