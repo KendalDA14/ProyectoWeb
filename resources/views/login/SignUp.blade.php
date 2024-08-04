@@ -1,49 +1,111 @@
-@vite('resources/css/app.css')
-<div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-    <div class="relative py-3 sm:max-w-xl sm:mx-auto">
-        <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-sky-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-        </div>
-        <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+<!DOCTYPE html>
+<html>
 
-            <div class="absolute top-4 right-4">
-                <button id="BtnVolver" class="bg-cyan-500 text-white rounded-md px-2 py-1">Volver</button>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registrarse</title>
+    <link rel="icon" href="img/logo1.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
 
-            <div class="max-w-md mx-auto">
-                <div>
-                    <h1 class="text-2xl font-semibold">Registrarme</h1>
-                </div>
-                <div class="divide-y divide-gray-200">
-                    <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                        <div class="relative">
-                            <input autocomplete="off" id="email" name="email" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600" placeholder="Email address" />
-                            <label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Correo electronico</label>
-                        </div>
-                        <div class="relative">
-                            <input autocomplete="off" id="password" name="password" type="password" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600" placeholder="Password" />
-                            <label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Contraseña</label>
-                        </div>
-                        <div class="relative">
-                            <input autocomplete="off" id="confirm-password" name="confirm-password" type="password" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:border-rose-600" placeholder="Confirm Password" />
-                            <label for="confirm-password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Confirmar Contraseña</label>
-                        </div>
+<body background="#F8F9FA">
 
+    <section class="bg-light py-3 py-md-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                    <div class="card border border-light-subtle rounded-3 shadow-sm">
+                        <div class="card-body p-3 p-md-4 p-xl-5">
+                            <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Regístrese en su cuenta</h2>
+                            <form method="POST" action="{{ route('register.post') }}">
+                                @csrf
+
+                                @session('error')
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $value }}
+                                    </div>
+                                @endsession
+
+                                <div class="row gy-2 overflow-hidden">
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="text"
+                                                class="form-control @error('name') is-invalid @enderror" name="name"
+                                                id="name" placeholder="name@example.com" required>
+                                            <label for="name" class="form-label">{{ __('Nombre') }}</label>
+                                        </div>
+                                        @error('name')
+                                            <span class="text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="email"
+                                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                                id="email" placeholder="name@example.com" required>
+                                            <label for="email"
+                                                class="form-label">{{ __('Correo electrónico') }}</label>
+                                        </div>
+                                        @error('email')
+                                            <span class="text-danger" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="password"
+                                                class="form-control @error('password') is-invalid @enderror"
+                                                name="password" id="password" placeholder="Password" required>
+                                            <label for="password" class="form-label">{{ __('Contraseña') }}</label>
+                                            @error('password')
+                                                <span class="text-danger" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-floating mb-3">
+                                            <input type="password"
+                                                class="form-control @error('password_confirmation') is-invalid @enderror"
+                                                name="password_confirmation" id="password_confirmation"
+                                                placeholder="Confirmar contraseña" required>
+                                            <label for="password_confirmation"
+                                                class="form-label">{{ __('Confirmar contraseña') }}</label>
+                                            @error('password_confirmation')
+                                                <span class="text-danger" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="d-grid my-3">
+                                            <button class="btn btn-dark"
+                                                type="submit">{{ __('Registrar') }}</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="m-0 text-sumir text-center">¿Tener una cuenta? <a
+                                                href="{{ route('login') }}"
+                                                class="link-primary text-decoration-none">Iniciar sesión</a></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-
-                <div class="w-full flex justify-center mt-4">
-                    <button id="BtRegistro" class="bg-cyan-500 text-white rounded-md px-2 py-1">Confirmar</button>
-                </div>
-
             </div>
         </div>
-    </div>
-
-    <script>
-        document.getElementById('BtnVolver').onclick = function() {
-            window.location.href = '{{ route("home") }}';
-        }
-        document.getElementById('BtRegistro').onclick = function() {
-            window.location.href = '{{ route("login") }}';
-        }
-    </script>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>      
+</body>
+</html>
