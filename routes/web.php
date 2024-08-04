@@ -38,7 +38,6 @@ Route::middleware([EnsureUserHasRole::class])->group(function () { // Ventanas p
     Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');
     Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
     Route::post('GuardaBd', [LibroController::class, 'store'])->name('GuardaBd');
-   // Route::get('/admin/home', [AdminController::class, 'index'])->name('homeAdmin');
     Route::get('categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
     
 
