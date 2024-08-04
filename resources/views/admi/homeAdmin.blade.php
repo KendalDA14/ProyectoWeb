@@ -15,13 +15,14 @@
             <a href="#" class="text-2xl font-bold">Librería Online</a>
         </div>
         <div class="flex justify-center">
-            <a href="#" class="text-2xl font-bold" style="color: black;">Area Administrativa</a>
+            <a href="#" class="text-2xl font-bold" style="color: black;">Area de administracion</a>
         </div>
 
         <div class="flex items-center gap-4">
-            <button id="BtnVentanaAdmin" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
-                Administrador
-            </button>
+             
+                <button type="button" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" onclick="window.location.href='{{ route('ventanaAdmin') }}'">
+                    Administración
+                </button>
             <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button type="submit" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" id="logoutBtn">Cerrar Sesión</button>
