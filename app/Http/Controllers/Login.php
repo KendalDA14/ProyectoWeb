@@ -57,7 +57,7 @@ class Login extends Controller
         //$remember = $request->has('remember'); // Verifica si el checkbox "remember me" está marcado
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('home')
+            return redirect()->intended('homeAdmin')
                 ->withSuccess('You have Successfully logged in');
         }
 

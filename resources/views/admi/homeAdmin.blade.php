@@ -22,9 +22,10 @@
             <button id="BtnVentanaAdmin" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
                 Administrador
             </button>
-            <button id="BtnVolver" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3">
-                Salir
-            </button>
+            <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" id="logoutBtn">Cerrar Sesión</button>
+                </form>
         </div>
     </header>
 

@@ -23,6 +23,11 @@ Route::get('registration', [Login::class, 'SignUp'])->name('register');
 Route::post('post-registration', [Login::class, 'postRegistration'])->name('register.post');
 Route::post('logout', [Login::class, 'logout'])->name('logout');
 
+Route::get('categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
+Route::get('categorias/{id}', [CategoriaController::class, 'mostrar'])->name('categorias.mostrar');
+Route::resource('categorias', CategoriaController::class)->except(['show']);
+Route::resource('libros', LibroController::class)->except(['show']);
+Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
 
 
 
@@ -33,11 +38,6 @@ Route::middleware([EnsureUserHasRole::class])->group(function () { // Ventanas p
     Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');
     Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
     Route::post('GuardaBd', [LibroController::class, 'store'])->name('GuardaBd');
-    Route::resource('libros', LibroController::class)->except(['show']);
-    Route::resource('categorias', CategoriaController::class)->except(['show']);
-    Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
-    Route::get('categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
-    Route::get('categorias/{id}', [CategoriaController::class, 'mostrar'])->name('categorias.mostrar');
     
 });
 
