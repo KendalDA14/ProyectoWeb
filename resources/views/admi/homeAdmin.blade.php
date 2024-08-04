@@ -15,7 +15,7 @@
             <a href="#" class="text-2xl font-bold">Librería Online</a>
         </div>
         <div class="flex justify-center">
-            <a href="#" class="text-2xl font-bold" style="color: black;">Area Administrativa</a>
+            <a href="#" class="text-2xl font-bold" style="color: black;">Area de administracion</a>
         </div>
 
         <div class="flex items-center gap-4">
