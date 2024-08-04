@@ -39,10 +39,4 @@ Route::middleware([EnsureUserHasRole::class])->group(function () { // Ventanas p
     Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
     Route::post('GuardaBd', [LibroController::class, 'store'])->name('GuardaBd');
     Route::get('categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
-    
-
-    
 });
-
-
-
