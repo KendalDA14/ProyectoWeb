@@ -12,7 +12,7 @@
     <main class="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
             <div class="px-6 py-4 bg-gray-800 text-white">
-                <h1 class="text-2xl font-bold">Editar Categoría</h1>
+                <h1 class="text-2xl font-bold">Editar Categoríaaaaaa</h1>
             </div>
 
             <div class="p-6">
