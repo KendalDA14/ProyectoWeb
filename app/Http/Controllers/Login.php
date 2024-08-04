@@ -54,7 +54,7 @@ class Login extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        //$remember = $request->has('remember'); // Verifica si el checkbox "remember me" está marcado
+        
 
         if (Auth::attempt($credentials)) {
             return redirect()->intended('homeAdmin')
