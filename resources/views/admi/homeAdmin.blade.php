@@ -29,15 +29,7 @@
     </header>
 
     <main class="px-6 py-8">
-        <section class="text-center space-y-6 bg-muted text-foreground p-8 rounded-lg">
-            <h1 class="text-4xl font-bold font-serif">Bienvenido a Librería Online</h1>
-            <p class="max-w-md mx-auto">
-                Descubre una amplia selección de libros, desde clásicos hasta las últimas novedades.
-            </p>
-            Con nosotros podras descargar todos los libros gratos.
-            </p>
-
-        </section>
+        <h2 class="text-2xl font-bold">Libros</h2>
 
         <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
             @foreach ($libros as $libro)
