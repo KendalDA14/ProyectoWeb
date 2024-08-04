@@ -4,6 +4,9 @@ use App\Http\Controllers\Login;
 use App\Http\Controllers\LibroController;
 use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\EnsureUserHasRole;
+
+
 
 
 Route::get('/', function () {
@@ -12,36 +15,27 @@ Route::get('/', function () {
 
 //rutas del home publico
 Route::get('home', [Login::class, 'Home'])->name('home');
-Route::get('login', [Login::class, 'login'])->name('login');
-Route::get('signUp', [Login::class, 'SignUp'])->name('SignUp');
 
-//rutas del home admin
-Route::get('homeAdmin', [Login::class, 'homeAdmin'])->name('homeAdmin');
-Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');
-Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
-Route::post('GuardaBd', [LibroController::class, 'store'])->name('GuardaBd');
-Route::resource('libros', LibroController::class)->except(['show']);
-Route::resource('categorias', CategoriaController::class)->except(['show']);
-//rutas para ver categorías
-Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
+
+Route::get('login', [Login::class, 'login'])->name('login');
+Route::post('post-login', [Login::class, 'postLogin'])->name('login.post');
+Route::get('registration', [Login::class, 'SignUp'])->name('register');
+Route::post('post-registration', [Login::class, 'postRegistration'])->name('register.post');
+Route::post('logout', [Login::class, 'logout'])->name('logout');
+
 Route::get('categorias', [CategoriaController::class, 'categoriaIndex'])->name('categorias.index');
 Route::get('categorias/{id}', [CategoriaController::class, 'mostrar'])->name('categorias.mostrar');
+Route::resource('categorias', CategoriaController::class)->except(['show']);
+Route::resource('libros', LibroController::class)->except(['show']);
+Route::get('libros', [LibroController::class, 'index'])->name('libros.index');
+
 
 
 
 //rutas para autenticar 
-Route::middleware('auth')->group(function () { // Ventanas para autenticar 
-    /* Route::resource('libros', LibroController::class)->except(['show']);
-    Route::resource('categorias', CategoriaController::class)->except(['show']);
+Route::middleware([EnsureUserHasRole::class])->group(function () { // Ventanas para autenticarr 
     Route::get('homeAdmin', [Login::class, 'homeAdmin'])->name('homeAdmin');
-    Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');*/
+    Route::get('ventanaAdmin', [Login::class, 'ventanaAdmin'])->name('ventanaAdmin');
+    Route::get('libroCrear', [LibroController::class, 'crear'])->name('libroCrear');
+    Route::post('GuardaBd', [LibroController::class, 'store'])->name('GuardaBd');
 });
-
-
-
-/*Route::get('sucursales', function () {
-    $libro = libro::all();
-    $categoria = categoria::all();
-    return view('admi.ventana', compact('libros', 'categorias'));
-})->name('sucursales');*/
-
