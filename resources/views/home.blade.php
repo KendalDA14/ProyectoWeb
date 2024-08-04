@@ -14,9 +14,8 @@
             <a href="#" class="text-2xl font-bold">Librería Online</a>
             <nav class="hidden md:flex items-center gap-4">
                 <a href="{{ route('libros.index') }}" class="hover:text-primary-foreground">Categorías</a>
-                <a href="#" class="hover:text-primary-foreground">Novedades</a>
-                <a href="#" class="hover:text-primary-foreground">Más Vendidos</a>
-                <a href="#" class="hover:text-primary-foreground">Contacto</a>
+                <a href="#novedades" class="hover:text-primary-foreground">Novedades</a>
+                <a href="#contacto" class="hover:text-primary-foreground">Contacto</a>
             </nav>
         </div>
         <div class="div-login dropdown">
@@ -68,7 +67,7 @@
 
         </section>
 
-        <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+        <section id="novedades" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
             @foreach ($libros as $libro)
             <div class="bg-muted rounded-lg overflow-hidden">
                 <img src="{{ $libro->imagen }}" alt="{{ $libro->titulo }}" width="400" height="500" class="w-full h-56 object-cover" />
@@ -102,25 +101,29 @@
             @endforeach
         </section>
     </main>
-    <main class="px-4 py-8">
-        <section class="text-center space-y-4 bg-muted text-foreground p-8 rounded-lg max-w-2xl mx-auto">
-            <h3 class="text-2xl font-bold font-serif">¿Quieres que traigamos un libro en específico?</h3>
-            <p class="max-w-md mx-auto mb-6">
-                Envíanos un mensaje con el nombre del libro, el autor, y el motivo por el que deberíamos agregarlo y
-                haremos lo posible por traerlo a nuestra librería.
-            </p>
-            <form id="Formulario" class="max-w-md mx-auto space-y-7">
-                <input id="name" class="w-full p-2 rounded border" type="text" placeholder="Tu nombre" required>
-                <input id="book_name" class="w-full p-2 rounded border" type="text" placeholder="Nombre del libro" required>
-                <input id="author" class="w-full p-2 rounded border" type="text" placeholder="Autor del libro" required>
-                <textarea id="reason" class="w-full p-2 rounded border" placeholder="Motivo" required></textarea>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Enviar</button>
-            </form>
-            <p id="Mensaje" class="hidden max-w-md mx-auto bg-green-100 text-green-700 border border-green-300 rounded-lg p-4 shadow-md">
-                Enviado
-            </p>
-        </section>
-    </main>
+
+
+
+    <main id="contacto" class="px-4 py-8">
+    <section class="text-center space-y-4 bg-muted text-foreground p-8 rounded-lg max-w-2xl mx-auto">
+        <h3 class="text-2xl font-bold font-serif">¿Quieres que traigamos un libro en específico?</h3>
+        <p class="max-w-md mx-auto mb-6">
+            Envíanos un mensaje con el nombre del libro, el autor, y el motivo por el que deberíamos agregarlo y
+            haremos lo posible por traerlo a nuestra librería.
+        </p>
+        <form id="Formulario" class="max-w-md mx-auto space-y-7">
+            <input id="name" class="w-full p-2 rounded border" type="text" placeholder="Tu nombre" required>
+            <input id="book_name" class="w-full p-2 rounded border" type="text" placeholder="Nombre del libro" required>
+            <input id="author" class="w-full p-2 rounded border" type="text" placeholder="Autor del libro" required>
+            <textarea id="reason" class="w-full p-2 rounded border" placeholder="Motivo" required></textarea>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Enviar</button>
+        </form>
+        <p id="Mensaje" class="hidden max-w-md mx-auto bg-green-100 text-green-700 border border-green-300 rounded-lg p-4 shadow-md">
+            Enviado
+        </p>
+    </section>
+</main>
+
 
 
     <footer class="bg-muted py-6 text-center text-muted-foreground">
