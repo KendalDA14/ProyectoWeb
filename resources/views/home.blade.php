@@ -19,39 +19,42 @@
             </nav>
         </div>
         <div class="div-login dropdown">
-    <button class="btn text-white" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-person-circle"></i>
-    </button>
-    <div class="flex items-center gap-4">
-        @auth <!-- Si el usuario está autenticado -->
-            @if (Auth::user()->admin)
+            <button class="btn text-white" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person-circle"></i>
+            </button>
+            <div class="flex items-center gap-4">
+                @auth <!-- Si el usuario está autenticado -->
+                @if (Auth::user()->admin)
                 <!-- Si el usuario es administrador -->
-                
-                    <button type="button" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" onclick="window.location.href='{{ route('homeAdmin') }}'">
-                        Administración
-                    </button>
-                
-            @endif
-           
+                 
+                <button type="button" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" onclick="window.location.href='{{ route('homeAdmin') }}'">
+                    Administración
+                </button>
+
+                @endif
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" id="logoutBtn">Cerrar Sesión</button>
+                    <a href="#">Bienvenidos(a) {{ auth::user()->name}}</a>
+
+                    <button type="submit" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3"
+                        id="logoutBtn">Cerrar Sesión</button>
+                             
                 </form>
-            
-        @else
-            <!-- Si el usuario no está autenticado -->
-           
+
+                @else
+                <!-- Si el usuario no está autenticado -->
+
                 <button type="button" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" onclick="window.location.href='{{ route('login') }}'">
                     Inicio Sesión
                 </button>
-         
+
                 <button type="button" class="inline-flex items-center justify-center text-sm font-medium bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-md px-3" onclick="window.location.href='{{ route('register') }}'">
                     Registrarse
                 </button>
-          
-        @endauth
-</div>
-</div>
+
+                @endauth
+            </div>
+        </div>
 
 
     </header>
@@ -105,24 +108,24 @@
 
 
     <main id="contacto" class="px-4 py-8">
-    <section class="text-center space-y-4 bg-muted text-foreground p-8 rounded-lg max-w-2xl mx-auto">
-        <h3 class="text-2xl font-bold font-serif">¿Quieres que traigamos un libro en específico?</h3>
-        <p class="max-w-md mx-auto mb-6">
-            Envíanos un mensaje con el nombre del libro, el autor, y el motivo por el que deberíamos agregarlo y
-            haremos lo posible por traerlo a nuestra librería.
-        </p>
-        <form id="Formulario" class="max-w-md mx-auto space-y-7">
-            <input id="name" class="w-full p-2 rounded border" type="text" placeholder="Tu nombre" required>
-            <input id="book_name" class="w-full p-2 rounded border" type="text" placeholder="Nombre del libro" required>
-            <input id="author" class="w-full p-2 rounded border" type="text" placeholder="Autor del libro" required>
-            <textarea id="reason" class="w-full p-2 rounded border" placeholder="Motivo" required></textarea>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Enviar</button>
-        </form>
-        <p id="Mensaje" class="hidden max-w-md mx-auto bg-green-100 text-green-700 border border-green-300 rounded-lg p-4 shadow-md">
-            Enviado
-        </p>
-    </section>
-</main>
+        <section class="text-center space-y-4 bg-muted text-foreground p-8 rounded-lg max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold font-serif">¿Quieres que traigamos un libro en específico?</h3>
+            <p class="max-w-md mx-auto mb-6">
+                Envíanos un mensaje con el nombre del libro, el autor, y el motivo por el que deberíamos agregarlo y
+                haremos lo posible por traerlo a nuestra librería.
+            </p>
+            <form id="Formulario" class="max-w-md mx-auto space-y-7">
+                <input id="name" class="w-full p-2 rounded border" type="text" placeholder="Tu nombre" required>
+                <input id="book_name" class="w-full p-2 rounded border" type="text" placeholder="Nombre del libro" required>
+                <input id="author" class="w-full p-2 rounded border" type="text" placeholder="Autor del libro" required>
+                <textarea id="reason" class="w-full p-2 rounded border" placeholder="Motivo" required></textarea>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Enviar</button>
+            </form>
+            <p id="Mensaje" class="hidden max-w-md mx-auto bg-green-100 text-green-700 border border-green-300 rounded-lg p-4 shadow-md">
+                Enviado
+            </p>
+        </section>
+    </main>
 
 
 
