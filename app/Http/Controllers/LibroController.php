@@ -27,9 +27,9 @@ class LibroController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'titulo' => 'required|string|max:20',
+            'titulo' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'autor' => 'required|string|max:20',
+            'autor' => 'required|string|max:255',
             'fecha_salida' => 'required|date',
             'calificacion' => 'required|numeric|min:0|max:5|regex:/^[0-5](\.[05])?$/',
             'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
